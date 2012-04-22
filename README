@@ -1,0 +1,32 @@
+
+Programming notes::
+
+Goal:
+  Take the pollen forcast data from http://www.metoffice.gov.uk/public/ddc/ and display it using four options.
+
+Low = Green
+Medium = Yellow
+High = Red
+Very High = Flashing Red
+
+Input:
+  parsed xml response from http get request
+
+
+  GET /public/val/wxfcs/all/xml/3839?res=daily&key=<mykey> HTTP/1.0
+    (replace mykey with a valid key)
+  The key provided and demonstrated on http://www.metoffice.gov.uk/premium/ddc/previewData.html doesn't work for me.
+
+  Searching for alternative data sources resulted in located this code http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1231812230
+    that can run entirely on an arduino with a ethernet shield (after miner fixes)
+    This code connects to the www.weather.gov side and gets an xml file that it searched thru for information
+    It output the following
+      Starting WebWx
+      connecting...
+      connected
+      Temp: 61.0, Humidity: 93, Pressure: 29.65
+
+
+Output:
+  six digital outs for the light sources
+
