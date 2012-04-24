@@ -1,3 +1,10 @@
+Project Description:
+  Display the days pollen forcast.
+    Three orbs for three allergens
+      Grass, Rapeseed, and Nettles
+    Four levels per orb
+      Green, Yellow, Red, and Flashing Red
+
 
 Programming notes::
 
@@ -10,23 +17,30 @@ High = Red
 Very High = Flashing Red
 
 Input:
-  parsed xml response from http get request
-
+  parsed xml or json response from http get request
+    reviewing the sample xml met office data, it seems like it might be a better option to use json data.
+      https://github.com/interactive-matter/aJson
+    Once the met office data is live a better desision can be made.
 
   GET /public/val/wxfcs/all/xml/3839?res=daily&key=<mykey> HTTP/1.0
     (replace mykey with a valid key)
   The key provided and demonstrated on http://www.metoffice.gov.uk/premium/ddc/previewData.html doesn't work for me.
 
   Searching for alternative data sources resulted in located this code http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1231812230
-    that can run entirely on an arduino with a ethernet shield (after miner fixes)
-    This code connects to the www.weather.gov side and gets an xml file that it searched thru for information
+    that can run entirely on an arduino with a ethernet shield or Arduino Ethernet board (after miner fixes)
+    This code connects to the www.weather.gov site and gets an xml file that it searched thru for information
     It output the following
       Starting WebWx
       connecting...
       connected
       Temp: 61.0, Humidity: 93, Pressure: 29.65
+    
+    This allows it to work without a computer, just an ethernet connection and a power supply.
 
 
 Output:
-  six digital outs for the light sources
+  nine digital outs for the light sources pin 1 to 9
+    1 = Low Grass
+    2 = Medium Grass
+    etc.
 
